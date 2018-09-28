@@ -27,9 +27,3 @@ ax.scatter(x_test['temp'], x_test['hum'], y_test, c='blue', marker='o', alpha=0.
 ax.plot(x_test["temp"], x_test['hum'], linreg.predict(x_test))
 plt.show()
 
-#plt.scatter(x_test, y_test, color='red')
-#plt.plot(x_test, linreg.predict(x_test), color='blue')
-#plt.title('Test Set')
-#plt.xlabel('input')
-#plt.ylabel('Count')
-#plt.show()

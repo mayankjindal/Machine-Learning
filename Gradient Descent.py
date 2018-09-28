@@ -45,10 +45,10 @@ Y = y_train.reshape(len(y_train), 1)
 Theta = gradient_descent(X, Y)
 print("Theta : ", Theta)
 
-# Vectorizing train data for Gradient Descent
+# Vectorizing test data for Gradient Descent
 X = np.append(np.ones(len(x_test)).reshape(len(x_test), 1), np.array(x_test).reshape(len(x_test), 1), axis=1)
 y_predicted = predict(X, Theta)
-#print(y_predicted)
+# print(y_predicted)
 
 mse = mean_squared_error(y_test, y_predicted)
 print("Mean Square Error: ", mse)

@@ -37,7 +37,9 @@ for k in range(1000):
 w = np.squeeze(sess.run(w))
 b = np.squeeze(sess.run(b))
 
+print(w, b)
 plot_x = np.array([np.min(x[:, 0] - 0.2), np.max(x[:, 1] + 0.2)])
+print(plot_x)
 plot_y = -1/w[1] * (w[0] * plot_x + b).reshape([2, -1])
 plot_y = np.squeeze(plot_y)
 
