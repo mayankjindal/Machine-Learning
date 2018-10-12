@@ -20,31 +20,22 @@ def preprocessing(inpath, name, outpath=base_dir, mix=False):
     indices = []
     text = []
     rating = []
-    
+    j = 0
+    pos_rev = os.listdir(inpath+"pos")
     for i in pos_rev[:30000]:
-    with open(path+"pos/"+i, 'r') as f:
-        data = json.load(f)
-    if data['language'] == 'english':
-        text.append(data['text'])
-        rating.append('Positive')
-        indices.append(j)
-        j += 1
-
-    print(len(indices))
-    neg_rev = os.listdir(path+"neg")
-
-    for i in neg_rev:
-        with open(path+"neg/"+i, 'r') as f:
+        with open(path+"pos/"+i, 'r') as f:
             data = json.load(f)
         if data['language'] == 'english':
             text.append(data['text'])
-            rating.append('Negative')
+            rating.append('Positive')
             indices.append(j)
             j += 1
 
-    neg_rev = os.listdir(path+"neg1")
-    for i in neg_rev[:16000]:
-        with open(path+"neg1/"+i, 'r') as f:
+    print(len(indices))
+    neg_rev = os.listdir(path+"neg")
+    j = 0
+    for i in neg_rev:
+        with open(path+"neg/"+i, 'r') as f:
             data = json.load(f)
         if data['language'] == 'english':
             text.append(data['text'])
@@ -101,7 +92,6 @@ def write_txt(data, name):
     file.close()
 
 
-print("Preprocessing the Training Data")
 #preprocessing(inpath=path, name="data.csv", mix=True)
 #print("Preprocessing the Test Data")
 #preprocessing(inpath=test_path, name="imdb_te.csv", mix=True)
